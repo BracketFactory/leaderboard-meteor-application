@@ -1,0 +1,62 @@
+/* CSS declarations go here */
+/* When a user clicks on one of the players inside out list,
+ * we want to change the background-color property of the "li"
+ * element.  Let's create a class named "selected */
+.selected {
+  background-color: #2ECC40;
+}
+
+body {
+  text-align: center;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  margin: 3em 0;
+  padding: 0;
+  background-color: #AAAAAA;
+}
+
+.outer {
+  margin: 0 auto;
+  max-width: 480px;
+}
+
+.title {
+  font-size: 3em;
+  font-weight: 600;
+  letter-spacing: .3em;
+  margin: 0 0 .25em;
+  text-align: center;
+  text-indent: .3em;
+  text-transform: uppercase;
+  color: #FF4136;
+}
+
+.subtitle {
+  color: #001F3F;
+  font-size: 1.5em;
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.leaderboard {
+  border-top: 1px solid #f1f1f1;
+  counter-reset: ol-counter;
+  list-style-type: none;
+  margin: 0 0 1.5em;
+  padding: 0;
+}
+
+.player {
+  border-bottom: 1px solid #f1f1f1;
+  cursor: pointer;
+  padding: .5em 0;
+  position: relative;
+  overflow: hidden;
+  transition: background 300ms ease-out;
+  border-left: 4px solid white;
+}
+
+.login-form {
+  padding-top: 60px;
+}

@@ -1,0 +1,55 @@
+<head>
+  <title>Leaderboard</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
+  <title>Leaderboard</title>
+</head>
+<body>
+  <div class="outer">
+    <div class="logo">
+      <h1 class="title">Super Hero Leaderboard</h1>
+      <div class="subtitle">Add and give points to your favorite super heroes</div>
+      {{> leaderboard}}
+    </div>
+  </div>
+  <!-- we inject this into the view so users can login -->
+  <div class="login-form">
+    {{> loginButtons}}
+  </div>
+</body>
+
+<!-- our first template -->
+<template name="leaderboard">
+<!-- If we leave the code below as {{ player }}, the result is: [object Object].
+ We need to create an each block.  -->
+  <ol class="leaderboard">
+    {{#each player}}
+      <!-- we should add a class to our li element, so we can target it specifically. -->
+      <!-- We need need to place a reference to the "selectClass" function inside of our
+      li element's class attribute -->
+      <li class="player {{selectedClass}}">{{name}}: {{score}}</li>
+    {{/each}}
+  </ol>
+    <!-- We add an if statement here as well so that only registered users
+    can modify content. -->
+    {{#if currentUser}}
+      <p>Selected Player: {{showSelectedPlayer.name}}</p>
+
+      <input type="button" class="remove" value="Remove Player">
+      <input type="button" class="increment" value="Give 5 Points">
+      <input type="button" class="decrement" value="Take 5 Points">
+      {{> addPlayerForm }}
+    {{/if}}
+</template>
+
+<!-- our second template -->
+<template name="addPlayerForm">
+  <!-- We don't want unregistered users seeing content, for example,
+  they shouldn't see the "Add Player" form.  Let's fix this below -->
+  {{#if currentUser}}
+    <form>
+        <input type="text" name="playerName">
+        <input type="submit" value = "Add Player">
+    </form>
+  {{/if}}
+</template>
